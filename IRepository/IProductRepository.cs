@@ -9,7 +9,7 @@ namespace eCommerce.IRepository
     public interface IProductRepository
     {
         IEnumerable<Product> AllProducts { get; }
-        IEnumerable<Product> ProductOfTheWeek { get; }
+        IEnumerable<Product> ProductsOfTheWeek { get; }
         Product GetProductById(int productId);
     }
 }
