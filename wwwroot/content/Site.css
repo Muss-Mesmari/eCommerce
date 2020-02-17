@@ -45,6 +45,14 @@ body {
     padding-left: 10px;
 }
 
+.lead img {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
 .thumbnail {
     padding: 0;
 }
