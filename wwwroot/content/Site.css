@@ -6,9 +6,10 @@
 
 body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-    background-image: url('/images/pattern.jpg');
+    background-image: url('/images/starsbbg.jpg');
     background-repeat: repeat;
     font-family: 'Source Sans Pro', sans-serif;
+    color: white;
 }
 
 
@@ -47,10 +48,10 @@ body {
     padding: 0;
 }
 
-    .thumbnail .caption-full {
-        padding: 9px;
-        color: #333;
-    }
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333;
+}
 
 footer {
     margin: 50px 0;
