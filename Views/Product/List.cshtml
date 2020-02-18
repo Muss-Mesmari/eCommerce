@@ -11,7 +11,7 @@
             <div class="caption">
                 <h3 class="pull-right">@product.Price.ToString("C")</h3>
                 <h3>
-                    <a>@product.Name</a>
+                    <a asp-controller="Product" asp-action="Details" asp-route-id="@product.ProductId">@product.Name</a>        
                 </h3>
                 <p>@product.ShortDescription</p>
             </div>
