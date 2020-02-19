@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using eCommerce.IRepository;
+using eCommerce.Models;
 using eCommerce.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,16 +23,40 @@ namespace eCommerce.Controllers
         }
 
         // GET: /<controller>/
-        public IActionResult List()
+        //public IActionResult List()
+        //{
+        //    //ViewBag.CurrentCategory = "Cheese cakes";
+
+        //    //return View(_productRepository.AllProducts);
+        //    ProductsListViewModel productsListViewModel = new ProductsListViewModel();
+        //    productsListViewModel.Products = _productRepository.AllProducts;
+
+        //    productsListViewModel.CurrentCategory = "Category One";
+        //    return View(productsListViewModel);
+        //}
+
+        public ViewResult List(string category)
         {
-            //ViewBag.CurrentCategory = "Cheese cakes";
+            IEnumerable<Product> products;
+            string currentCategory;
 
-            //return View(_productRepository.AllProducts);
-            ProductsListViewModel productsListViewModel = new ProductsListViewModel();
-            productsListViewModel.Products = _productRepository.AllProducts;
+            if (string.IsNullOrEmpty(category))
+            {
+                products = _productRepository.AllProducts.OrderBy(p => p.ProductId);
+                currentCategory = "All pies";
+            }
+            else
+            {
+                products = _productRepository.AllProducts.Where(p => p.Category.CategoryName == category)
+                    .OrderBy(p => p.ProductId);
+                currentCategory = _categoryRepository.AllCategories.FirstOrDefault(c => c.CategoryName == category)?.CategoryName;
+            }
 
-            productsListViewModel.CurrentCategory = "Category One";
-            return View(productsListViewModel);
+            return View(new ProductsListViewModel
+            {
+                Products = products,
+                CurrentCategory = currentCategory
+            });
         }
 
         public IActionResult Details(int id)
