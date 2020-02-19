@@ -12,9 +12,9 @@ namespace eCommerce.Controllers
     {
         private readonly IProductRepository _productRepository;
 
-        public HomeController(IProductRepository pieRepository)
+        public HomeController(IProductRepository productRepository)
         {
-            _productRepository = pieRepository;
+            _productRepository = productRepository;
         }
 
         public IActionResult Index()
