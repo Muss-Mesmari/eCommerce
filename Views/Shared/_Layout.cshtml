@@ -30,6 +30,7 @@
                         <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
                         <li><a asp-controller="Product" asp-action="List">Products</a></li>
                         @await Component.InvokeAsync("ShoppingCartSummary")
+                        <partial name="_LoginPartial" />
                     </ul>
                 </div>
             </div>
@@ -45,6 +46,7 @@
                 @RenderBody()
             </div>
         </div>
+        @RenderSection("Scripts", required: false)
     </div>
 </body>
 </html>

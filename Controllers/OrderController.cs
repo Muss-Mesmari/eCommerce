@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using eCommerce.IRepository;
 using eCommerce.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eCommerce.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
         private readonly IOrderRepository _orderRepository;
