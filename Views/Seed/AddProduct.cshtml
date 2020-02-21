@@ -1,0 +1,96 @@
+﻿@model Product
+
+<form asp-action="Checkout" method="post" class="form-horizontal" role="form">
+    <h4>You're just one step away.</h4>
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+
+    <div class="form-group">
+        <label asp-for="ProductId" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="ProductId" class="form-control" />
+            @*<span asp-validation-for="LastName" class="text-danger"></span>*@
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Name" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="Name" class="form-control" />
+            @*<span asp-validation-for="FirstName" class="text-danger"></span>*@
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ShortDescription" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="ShortDescription" class="form-control" />
+            @*<span asp-validation-for="AddressLine1" class="text-danger"></span>*@
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="Price" class="form-control" />
+            @*<span asp-validation-for="AddressLine2" class="text-danger"></span>*@
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LongDescription" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="LongDescription" class="form-control" />
+            @*<span asp-validation-for="ZipCode" class="text-danger"></span>*@
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ImageUrl" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="ImageUrl" class="form-control" />
+            @*<span asp-validation-for="City" class="text-danger"></span>*@
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ImageThumbnailUrl" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="ImageThumbnailUrl" class="form-control" />
+            @*<span asp-validation-for="State" class="text-danger"></span>*@
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="IsProductOfTheWeek" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="IsProductOfTheWeek" class="form-control" />
+            @*<span asp-validation-for="Country" class="text-danger"></span>*@
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="InStock" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="InStock" class="form-control" />
+            @*<span asp-validation-for="PhoneNumber" class="text-danger"></span>*@
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CategoryId" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="CategoryId" class="form-control" />
+            @*<span asp-validation-for="Email" class="text-danger"></span>*@
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-5">
+            <input id="btn" type="submit" class="btn btn-primary" value="Complete the seed" />
+        </div>
+    </div>
+
+</form>
+
