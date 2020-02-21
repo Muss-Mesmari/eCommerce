@@ -6,13 +6,13 @@
 
 body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-    background-image: url('/images/starsbbg.jpg');
+    /*background-image: url('/images/starsbbg.jpg');*/
+    background-color: white;
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Source Sans Pro', sans-serif;
-    color: white;
+    color: black;
 }
-
 
 .slide-image {
     width: 100%;
@@ -32,9 +32,9 @@ body {
     overflow: hidden;
 }
 
-    .caption h4 {
-        white-space: nowrap;
-    }
+.caption h4 {
+    white-space: nowrap;
+}
 
 .thumbnail img {
     width: 100%;
@@ -71,12 +71,13 @@ footer {
 }
 
 .navbar-inverse {
-    background-color: #a593c2;
+    background-color: black;
     border-color: #a593c2;
 }
 
-.nav.navbar-nav.navbar-right li a {
+.btn btn-link navbar-btn navbar-link {
     color: white;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     font-size: 1.2em;
 }
 
@@ -84,6 +85,29 @@ footer {
     font-size: 1.2em;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     color: white;
+}
+
+    .navbar .nav > li > a:hover, 
+    .navbar .nav > li > a:focus {
+        font-size: 1.3em;
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+        color: red;
+    }
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    font-size: 1.3em;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    color: red;
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    font-size: 1.3em;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    color: red;
 }
 
 .carousel .item {
@@ -97,12 +121,13 @@ footer {
     min-height: 400px;
 }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
-    background-color: #fcaeae !important;
-    border-color: #fba1a1 !important;
+
+#btn:hover, #btn:active {
+    color: black;
 }
 
-.btn {
-    background-color: #fcaeae !important;
-    border-color: #fba1a1 !important;
+#btn {
+    color: white;
+    background-color: red !important;
+    border-color: red !important;
 }
