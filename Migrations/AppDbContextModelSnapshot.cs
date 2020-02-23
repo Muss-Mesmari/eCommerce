@@ -603,6 +603,37 @@ namespace eCommerce.Migrations
                     b.ToTable("Seeds");
                 });
 
+            modelBuilder.Entity("eCommerce.Models.SeedDetail", b =>
+                {
+                    b.Property<int>("SeedDetailId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SeedId")
+                        .HasColumnType("int");
+
+                    b.HasKey("SeedDetailId");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("SeedId");
+
+                    b.ToTable("SeedDetails");
+                });
+
             modelBuilder.Entity("eCommerce.Models.SeedShoppingCartItem", b =>
                 {
                     b.Property<int>("SeedShoppingCartItemId")
@@ -725,6 +756,19 @@ namespace eCommerce.Migrations
 
                     b.HasOne("eCommerce.Models.Seed", null)
                         .WithMany("Product")
+                        .HasForeignKey("SeedId");
+                });
+
+            modelBuilder.Entity("eCommerce.Models.SeedDetail", b =>
+                {
+                    b.HasOne("eCommerce.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("eCommerce.Models.Seed", "Seed")
+                        .WithMany("SeedDetails")
                         .HasForeignKey("SeedId");
                 });
 

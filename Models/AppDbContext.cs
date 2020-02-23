@@ -21,7 +21,7 @@ namespace eCommerce.Models
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Seed> Seeds { get; set; }
-       // public DbSet<SeedDetail> SeedDetails { get; set; }
+        public DbSet<SeedDetail> SeedDetails { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
