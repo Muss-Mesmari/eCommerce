@@ -13,7 +13,7 @@ namespace eCommerce.Models
         public int SeedId { get; set; }
 
          public List<SeedDetail> SeedDetails { get; set; }
-         public List<Product> Product { get; set; }
+         //public List<Product> Product { get; set; }
 
         [Required(ErrorMessage = "Please enter your first name")]
         [Display(Name = "First name")]
