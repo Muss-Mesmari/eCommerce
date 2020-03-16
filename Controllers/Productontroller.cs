@@ -43,7 +43,7 @@ namespace eCommerce.Controllers
             if (string.IsNullOrEmpty(category))
             {
                 products = _productRepository.AllProducts.OrderBy(p => p.ProductId);
-                currentCategory = "All pies";
+                currentCategory = "All products";
             }
             else
             {
