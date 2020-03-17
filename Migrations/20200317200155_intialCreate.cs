@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace eCommerce.Migrations
 {
-    public partial class initialcreate : Migration
+    public partial class intialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -82,6 +82,30 @@ namespace eCommerce.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Orders", x => x.OrderId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Seeds",
+                columns: table => new
+                {
+                    SeedId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(maxLength: 50, nullable: false),
+                    LastName = table.Column<string>(maxLength: 50, nullable: false),
+                    AddressLine1 = table.Column<string>(maxLength: 100, nullable: false),
+                    AddressLine2 = table.Column<string>(nullable: true),
+                    ZipCode = table.Column<string>(maxLength: 10, nullable: false),
+                    City = table.Column<string>(maxLength: 50, nullable: false),
+                    State = table.Column<string>(maxLength: 10, nullable: true),
+                    Country = table.Column<string>(maxLength: 50, nullable: false),
+                    PhoneNumber = table.Column<string>(maxLength: 25, nullable: false),
+                    Email = table.Column<string>(maxLength: 50, nullable: false),
+                    SeedTotal = table.Column<decimal>(nullable: false),
+                    SeedPlaced = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Seeds", x => x.SeedId);
                 });
 
             migrationBuilder.CreateTable(
@@ -246,6 +270,56 @@ namespace eCommerce.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "SeedDetails",
+                columns: table => new
+                {
+                    SeedDetailId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    OrderId = table.Column<int>(nullable: false),
+                    ProductId = table.Column<int>(nullable: false),
+                    Amount = table.Column<int>(nullable: false),
+                    Price = table.Column<decimal>(nullable: false),
+                    SeedId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SeedDetails", x => x.SeedDetailId);
+                    table.ForeignKey(
+                        name: "FK_SeedDetails_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "ProductId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_SeedDetails_Seeds_SeedId",
+                        column: x => x.SeedId,
+                        principalTable: "Seeds",
+                        principalColumn: "SeedId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SeedShoppingCartItems",
+                columns: table => new
+                {
+                    SeedShoppingCartItemId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductId = table.Column<int>(nullable: true),
+                    Amount = table.Column<int>(nullable: false),
+                    SeedShoppingCartId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SeedShoppingCartItems", x => x.SeedShoppingCartItemId);
+                    table.ForeignKey(
+                        name: "FK_SeedShoppingCartItems_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "ProductId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ShoppingCartItems",
                 columns: table => new
                 {
@@ -354,6 +428,21 @@ namespace eCommerce.Migrations
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_SeedDetails_ProductId",
+                table: "SeedDetails",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SeedDetails_SeedId",
+                table: "SeedDetails",
+                column: "SeedId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SeedShoppingCartItems_ProductId",
+                table: "SeedShoppingCartItems",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ShoppingCartItems_ProductId",
                 table: "ShoppingCartItems",
                 column: "ProductId");
@@ -380,6 +469,12 @@ namespace eCommerce.Migrations
                 name: "OrderDetails");
 
             migrationBuilder.DropTable(
+                name: "SeedDetails");
+
+            migrationBuilder.DropTable(
+                name: "SeedShoppingCartItems");
+
+            migrationBuilder.DropTable(
                 name: "ShoppingCartItems");
 
             migrationBuilder.DropTable(
@@ -390,6 +485,9 @@ namespace eCommerce.Migrations
 
             migrationBuilder.DropTable(
                 name: "Orders");
+
+            migrationBuilder.DropTable(
+                name: "Seeds");
 
             migrationBuilder.DropTable(
                 name: "Products");

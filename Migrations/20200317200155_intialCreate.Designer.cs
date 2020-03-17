@@ -10,8 +10,8 @@ using eCommerce.Models;
 namespace eCommerce.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200223135321_SeedAdded")]
-    partial class SeedAdded
+    [Migration("20200317200155_intialCreate")]
+    partial class intialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -380,17 +380,12 @@ namespace eCommerce.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("SeedId")
-                        .HasColumnType("int");
-
                     b.Property<string>("ShortDescription")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ProductId");
 
                     b.HasIndex("CategoryId");
-
-                    b.HasIndex("SeedId");
 
                     b.ToTable("Products");
 
@@ -755,10 +750,6 @@ namespace eCommerce.Migrations
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("eCommerce.Models.Seed", null)
-                        .WithMany("Product")
-                        .HasForeignKey("SeedId");
                 });
 
             modelBuilder.Entity("eCommerce.Models.SeedDetail", b =>
