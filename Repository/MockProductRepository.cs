@@ -23,6 +23,11 @@ namespace eCommerce.Repository
     
         public IEnumerable<Product> ProductsOfTheWeek { get; }
 
+        public void AddProduct(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
         public Product GetProductById(int productId)
         {
             return AllProducts.FirstOrDefault(p => p.ProductId == productId);

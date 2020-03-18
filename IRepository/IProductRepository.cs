@@ -11,5 +11,7 @@ namespace eCommerce.IRepository
         IEnumerable<Product> AllProducts { get; }
         IEnumerable<Product> ProductsOfTheWeek { get; }
         Product GetProductById(int productId);
+        void AddProduct(Product product);
+        
     }
 }

@@ -36,10 +36,8 @@ namespace eCommerce
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
-            services.AddScoped<IOrderRepository, OrderRepository>();
-            services.AddScoped<ISeedRepository, SeedRepository>();
-            services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp));
-            services.AddScoped<SeedShoppingCart>(sp => SeedShoppingCart.GetSeedCart(sp));
+            services.AddScoped<IOrderRepository, OrderRepository>();            
+            services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp));            
 
             services.AddHttpContextAccessor();
             services.AddSession();
