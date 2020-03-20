@@ -39,35 +39,27 @@ namespace eCommerce.Repository
         }
 
 
-        public void AddProduct(Product product)
-        {
-            var newProduct =
-        _appDbContext.Products.SingleOrDefault(
-            p => p.ProductId == product.ProductId);
-
-            if (newProduct == null)
+        public void CreateProduct(Product product)
+        {            
+                  
+            var newProduct = new Product
             {
-                newProduct = new Product
-                {
-                    ProductId = product.ProductId,
-                    Name = product.Name,
-                    Price = product.Price,
-                    ShortDescription = product.ShortDescription,
-                    LongDescription = product.LongDescription,
-                    ImageUrl = product.ImageUrl,
-                    ImageThumbnailUrl = product.ImageThumbnailUrl,
-                    IsProductOfTheWeek = product.IsProductOfTheWeek,
-                    InStock = product.InStock,
-                    CategoryId = product.CategoryId,
-                    Category = product.Category
-                };
+                ProductId = product.ProductId, 
+                Name = product.Name,
+                Price = product.Price,
+                ShortDescription = product.ShortDescription,
+                LongDescription = product.LongDescription,
+                ImageUrl = product.ImageUrl,
+                ImageThumbnailUrl = product.ImageThumbnailUrl,
+                IsProductOfTheWeek = product.IsProductOfTheWeek,
+                InStock = product.InStock,
+                CategoryId = product.CategoryId,
+                Category = product.Category
+            };
 
-                _appDbContext.Products.Add(newProduct);
-            }
-
+            _appDbContext.Products.Add(newProduct);
             _appDbContext.SaveChanges();
-                                    
-        }
 
+        }
     }
 }

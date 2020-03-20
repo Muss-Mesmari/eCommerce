@@ -1,96 +1,89 @@
 ﻿@model Product
 
-<form asp-action="AddProduct" method="post" class="form-horizontal" role="form">
-    <h4>You're just one step away.</h4>
+    <form asp-action="AddProduct" method="post" class="form-horizontal" role="form">
+        <h4>You're just one step away.</h4>
 
-    <div asp-validation-summary="All" class="text-danger"></div>
+        <div asp-validation-summary="All" class="text-danger"></div>
 
 
-    <div class="form-group">
-        <label asp-for="ProductId" class="col-md-2 control-label"></label>
-        <div class="col-md-5">
-            <input asp-for="ProductId" class="form-control" />
-            <span asp-validation-for="ProductId" class="text-danger"></span>
+        <div class="form-group">
+            <label asp-for="Name" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label asp-for="Name" class="col-md-2 control-label"></label>
-        <div class="col-md-5">
-            <input asp-for="Name" class="form-control" />
-            <span asp-validation-for="Name" class="text-danger"></span>
+        <div class="form-group">
+            <label asp-for="CategoryId" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="CategoryId" class="form-control" />
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label asp-for="ShortDescription" class="col-md-2 control-label"></label>
-        <div class="col-md-5">
-            <input asp-for="ShortDescription" class="form-control" />
-            <span asp-validation-for="ShortDescription" class="text-danger"></span>
+        <div class="form-group">
+            <label asp-for="Price" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label asp-for="Price" class="col-md-2 control-label"></label>
-        <div class="col-md-5">
-            <input asp-for="Price" class="form-control" />
-            <span asp-validation-for="Price" class="text-danger"></span>
+        <div class="form-group">
+            <label asp-for="ShortDescription" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="ShortDescription" class="form-control" />
+                <span asp-validation-for="ShortDescription" class="text-danger"></span>
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label asp-for="LongDescription" class="col-md-2 control-label"></label>
-        <div class="col-md-5">
-            <input asp-for="LongDescription" class="form-control" />
-            <span asp-validation-for="LongDescription" class="text-danger"></span>
+        <div class="form-group">
+            <label asp-for="LongDescription" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="LongDescription" class="form-control" />
+                <span asp-validation-for="LongDescription" class="text-danger"></span>
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label asp-for="ImageUrl" class="col-md-2 control-label"></label>
-        <div class="col-md-5">
-            <input asp-for="ImageUrl" class="form-control" />
-            <span asp-validation-for="ImageUrl" class="text-danger"></span>
+        <div class="form-group">
+            <label asp-for="ImageUrl" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="ImageUrl" class="form-control" />
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label asp-for="ImageThumbnailUrl" class="col-md-2 control-label"></label>
-        <div class="col-md-5">
-            <input asp-for="ImageThumbnailUrl" class="form-control" />
-            <span asp-validation-for="ImageThumbnailUrl" class="text-danger"></span>
+        <div class="form-group">
+            <label asp-for="ImageThumbnailUrl" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="ImageThumbnailUrl" class="form-control" />
+                <span asp-validation-for="ImageThumbnailUrl" class="text-danger"></span>
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label asp-for="IsProductOfTheWeek" class="col-md-2 control-label"></label>
-        <div class="col-md-5">
-            <input asp-for="IsProductOfTheWeek" class="form-control" />
-            <span asp-validation-for="IsProductOfTheWeek" class="text-danger"></span>
+        <div class="form-group">
+            <label asp-for="IsProductOfTheWeek" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="IsProductOfTheWeek" class="form-control" />
+                <span asp-validation-for="IsProductOfTheWeek" class="text-danger"></span>
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label asp-for="InStock" class="col-md-2 control-label"></label>
-        <div class="col-md-5">
-            <input asp-for="InStock" class="form-control" />
-            <span asp-validation-for="InStock" class="text-danger"></span>
+        <div class="form-group">
+            <label asp-for="InStock" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="InStock" class="form-control" />
+                <span asp-validation-for="InStock" class="text-danger"></span>
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label asp-for="CategoryId" class="col-md-2 control-label"></label>
-        <div class="col-md-5">
-            <input asp-for="CategoryId" class="form-control" />
-            <span asp-validation-for="CategoryId" class="text-danger"></span>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-5">
+                <input id="btn" type="submit" class="btn btn-primary" value="Complete the seed" />
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-5">
-            <input id="btn" type="submit" class="btn btn-primary" value="Complete the seed" />
-        </div>
-    </div>
-
-</form>
+    </form>
 

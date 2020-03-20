@@ -23,7 +23,7 @@ namespace eCommerce.Repository
     
         public IEnumerable<Product> ProductsOfTheWeek { get; }
 
-        public void AddProduct(Product product)
+        public void CreateProduct(Product product)
         {
             throw new NotImplementedException();
         }

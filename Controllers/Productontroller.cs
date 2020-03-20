@@ -69,13 +69,19 @@ namespace eCommerce.Controllers
         }
 
 
-        [HttpPost]
+        // POST: /Product/Create
+        public IActionResult AddProduct()
+        {
+            return View();
+        }
+
+        [HttpPost]        
         public IActionResult AddProduct(Product product)
         {
 
             if (ModelState.IsValid)
             {
-                _productRepository.AddProduct(product);              
+                _productRepository.CreateProduct(product);              
                 return RedirectToAction("SeedComplete");
             }
 
