@@ -40,8 +40,7 @@ namespace eCommerce.Repository
 
 
         public void CreateProduct(Product product)
-        {            
-                  
+        {
             var newProduct = new Product
             {
                 ProductId = product.ProductId, 
