@@ -5,6 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\**" />
+    <Content Remove="Migrations\**" />
+    <EmbeddedResource Remove="Migrations\**" />
+    <None Remove="Migrations\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Migrations\20200320153643_1stCreate.cs" />
+    <Compile Include="Migrations\20200320153643_1stCreate.Designer.cs" />
+    <Compile Include="Migrations\AppDbContextModelSnapshot.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\Images\" />
   </ItemGroup>
 

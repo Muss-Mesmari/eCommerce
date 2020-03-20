@@ -10,8 +10,8 @@ using eCommerce.Models;
 namespace eCommerce.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200317200155_intialCreate")]
-    partial class intialCreate
+    [Migration("20200320153643_1stCreate")]
+    partial class _1stCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -535,125 +535,6 @@ namespace eCommerce.Migrations
                         });
                 });
 
-            modelBuilder.Entity("eCommerce.Models.Seed", b =>
-                {
-                    b.Property<int>("SeedId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AddressLine1")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<string>("AddressLine2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("Country")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(25)")
-                        .HasMaxLength(25);
-
-                    b.Property<DateTime>("SeedPlaced")
-                        .HasColumnType("datetime2");
-
-                    b.Property<decimal>("SeedTotal")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("State")
-                        .HasColumnType("nvarchar(10)")
-                        .HasMaxLength(10);
-
-                    b.Property<string>("ZipCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(10)")
-                        .HasMaxLength(10);
-
-                    b.HasKey("SeedId");
-
-                    b.ToTable("Seeds");
-                });
-
-            modelBuilder.Entity("eCommerce.Models.SeedDetail", b =>
-                {
-                    b.Property<int>("SeedDetailId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Amount")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("SeedId")
-                        .HasColumnType("int");
-
-                    b.HasKey("SeedDetailId");
-
-                    b.HasIndex("ProductId");
-
-                    b.HasIndex("SeedId");
-
-                    b.ToTable("SeedDetails");
-                });
-
-            modelBuilder.Entity("eCommerce.Models.SeedShoppingCartItem", b =>
-                {
-                    b.Property<int>("SeedShoppingCartItemId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Amount")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("SeedShoppingCartId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("SeedShoppingCartItemId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("SeedShoppingCartItems");
-                });
-
             modelBuilder.Entity("eCommerce.Models.ShoppingCartItem", b =>
                 {
                     b.Property<int>("ShoppingCartItemId")
@@ -750,26 +631,6 @@ namespace eCommerce.Migrations
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("eCommerce.Models.SeedDetail", b =>
-                {
-                    b.HasOne("eCommerce.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("eCommerce.Models.Seed", "Seed")
-                        .WithMany("SeedDetails")
-                        .HasForeignKey("SeedId");
-                });
-
-            modelBuilder.Entity("eCommerce.Models.SeedShoppingCartItem", b =>
-                {
-                    b.HasOne("eCommerce.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId");
                 });
 
             modelBuilder.Entity("eCommerce.Models.ShoppingCartItem", b =>
