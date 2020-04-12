@@ -22,18 +22,6 @@ namespace eCommerce.Controllers
             _categoryRepository = categoryRepository;
         }
 
-        // GET: /<controller>/
-        //public IActionResult List()
-        //{
-        //    //ViewBag.CurrentCategory = "Cheese cakes";
-
-        //    //return View(_productRepository.AllProducts);
-        //    ProductsListViewModel productsListViewModel = new ProductsListViewModel();
-        //    productsListViewModel.Products = _productRepository.AllProducts;
-
-        //    productsListViewModel.CurrentCategory = "Category One";
-        //    return View(productsListViewModel);
-        //}
 
         public ViewResult List(string category)
         {
@@ -62,12 +50,11 @@ namespace eCommerce.Controllers
         public IActionResult Details(int id)
         {
             var product = _productRepository.GetProductById(id);
-            if (product == null)
-                return NotFound();
+            //if (product == null)
+            //    return NotFound();
 
             return View(product);
         }
-
 
         // POST: /Product/Create
         public IActionResult AddProduct()
@@ -75,13 +62,13 @@ namespace eCommerce.Controllers
             return View();
         }
 
-        [HttpPost]        
+        [HttpPost]
         public IActionResult AddProduct(Product product)
         {
 
             if (ModelState.IsValid)
             {
-                _productRepository.CreateProduct(product);              
+                _productRepository.CreateProduct(product);
                 return RedirectToAction("SeedComplete");
             }
 
@@ -95,5 +82,31 @@ namespace eCommerce.Controllers
             return View();
         }
 
+
+        //[HttpGet]
+        //public ActionResult Edit(int? productId)
+        //{
+        //    Product product = new Product();
+        //    product = _productRepository.GetProductById(product.ProductId);
+        //    if (product != null)
+        //        return View(product);
+
+        //    return NotFound();
+                       
+        //   // return View();
+        //}
+
+
+        //[HttpPost]
+        //public IActionResult Edit()
+        //{
+        //    Product product = new Product();
+        //    if (ModelState.IsValid)
+        //    {
+        //        _productRepository.EditProduct(product);
+        //        return RedirectToAction("SeedComplete");
+        //    }
+        //    return View(product);
+        //}
     }
 }

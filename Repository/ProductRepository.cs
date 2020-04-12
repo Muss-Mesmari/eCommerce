@@ -33,18 +33,18 @@ namespace eCommerce.Repository
             }
         }
 
-        public Product GetProductById(int productId)
+        public Product GetProductById(int? productId)
         {
             return _appDbContext.Products.FirstOrDefault(p => p.ProductId == productId);
         }
 
 
         public void CreateProduct(Product product)
-        {            
-                  
+        {
+
             var newProduct = new Product
             {
-                ProductId = product.ProductId, 
+                ProductId = product.ProductId,
                 Name = product.Name,
                 Price = product.Price,
                 ShortDescription = product.ShortDescription,
@@ -61,5 +61,34 @@ namespace eCommerce.Repository
             _appDbContext.SaveChanges();
 
         }
+
+
+        //public void EditProduct(Product product)
+        //{         
+        //    var oldProduct = GetProductById(product.ProductId);
+
+        //    var newProduct = new Product
+        //    {
+        //        //ProductId = productId,
+        //        Name = product.Name,
+        //        Price = product.Price,
+        //        ShortDescription = product.ShortDescription,
+        //        LongDescription = product.LongDescription,
+        //        ImageUrl = product.ImageUrl,
+        //        ImageThumbnailUrl = product.ImageThumbnailUrl,
+        //        IsProductOfTheWeek = product.IsProductOfTheWeek,
+        //        InStock = product.InStock,
+        //        CategoryId = product.CategoryId,
+        //        Category = product.Category
+        //    };
+
+        //    oldProduct = newProduct;
+
+        //  //  _appDbContext.Products.Add(newProduct);        
+        //  //   _appDbContext.Products.Remove(product);
+        //    _appDbContext.SaveChanges();
+
+        //}
+
     }
 }

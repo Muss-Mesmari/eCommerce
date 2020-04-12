@@ -28,7 +28,13 @@ namespace eCommerce.Repository
             throw new NotImplementedException();
         }
 
-        public Product GetProductById(int productId)
+        //public void EditProduct(Product product)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+
+        public Product GetProductById(int? productId)
         {
             return AllProducts.FirstOrDefault(p => p.ProductId == productId);
         }

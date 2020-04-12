@@ -1,0 +1,99 @@
+﻿@model Product
+<h2> Edit </h2>
+<div style="font-family:Arial">
+
+    @using (Html.BeginForm())
+  {
+        @Html.ValidationSummary(true)
+    <fieldset>
+
+        <legend> Edit Product </legend>
+
+        @Html.HiddenFor(model => model.ProductId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label"> @Html.LabelFor(model => model.CategoryId) </div>
+        <div class="editor-field">
+            @Html.DropDownList("CategoryId", new List<SelectListItem>
+            {
+                new SelectListItem
+                {
+                    Text = "Male", Value = "Male"
+                },
+                new SelectListItem
+                {
+                    Text = "Female", Value = "Female"
+                }
+            }, "Select CategoryId")
+        </div>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Price)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Price)
+            @Html.ValidationMessageFor(model => model.Price)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ShortDescription)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ShortDescription)
+            @Html.ValidationMessageFor(model => model.ShortDescription)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LongDescription)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LongDescription)
+            @Html.ValidationMessageFor(model => model.LongDescription)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ImageUrl)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ImageUrl)
+            @Html.ValidationMessageFor(model => model.ImageUrl)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ImageThumbnailUrl)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ImageThumbnailUrl)
+            @Html.ValidationMessageFor(model => model.ImageThumbnailUrl)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsProductOfTheWeek)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsProductOfTheWeek)
+            @Html.ValidationMessageFor(model => model.IsProductOfTheWeek)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.InStock)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.InStock)
+            @Html.ValidationMessageFor(model => model.InStock)
+        </div>
+
+        <input id="btn" type="submit" class="btn btn-primary" value="Complete the seed" />
+
+    </fieldset>
+     }
+    <div>@Html.ActionLink("Back to List", "List")</div>
+</div>

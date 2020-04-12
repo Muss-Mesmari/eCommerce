@@ -10,8 +10,8 @@ namespace eCommerce.IRepository
     {
         IEnumerable<Product> AllProducts { get; }
         IEnumerable<Product> ProductsOfTheWeek { get; }
-        Product GetProductById(int productId);
+        Product GetProductById(int? productId);
         void CreateProduct(Product product);
-        
+        //void EditProduct(Product product);
     }
 }

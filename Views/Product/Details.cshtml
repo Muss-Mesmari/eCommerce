@@ -14,9 +14,15 @@
         <p>@Model.LongDescription</p>
         <div class="addToCart">
             <p class="button">
-                <a id="btn" class="btn btn-primary" asp-controller="ShoppingCart" asp-action="AddToShoppingCart"
-                   asp-route-productId="@Model.ProductId">Add to cart</a>
+                <a id="btn" class="btn btn-primary"
+                   asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-productId="@Model.ProductId">
+                    Add to cart
+                </a>
+                @*<a asp-controller="Product" asp-action="Edit" asp-route-id="@Model.ProductId">
+                Edit
+                </a>*@                
             </p>
+              
         </div>
     </div>
 </div>
